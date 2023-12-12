@@ -67,7 +67,7 @@ var _ = Describe("ACME Certificate", Ordered, func() {
 
 	Context("dns-01 challenge using explicit credentials", func() {
 		It("should obtain a valid LetsEncrypt certificate", func() {
-			if _, f := os.LookupEnv(targetPlatformEnvironmentVar) && !f {
+			if _, f := os.LookupEnv(targetPlatformEnvironmentVar); !f {
 				g.Skip("skipping on ppc64le cluster")
 			}
 
@@ -181,7 +181,7 @@ var _ = Describe("ACME Certificate", Ordered, func() {
 
 	Context("dns-01 challenge on IBM Cloud CIS using explicit credentials", func() {
 		It("should obtain a valid LetsEncrypt certificate", func() {
-			if tp, f := os.LookupEnv(targetPlatformEnvironmentVar) && f && tp > 0 && tp == "ibmcloud" {
+			if tp, f := os.LookupEnv(targetPlatformEnvironmentVar); f && tp > 0 && tp == "ibmcloud" {
 				g.Skip("skipping as the cluster does not use ibm cloud CIS")
 			}
 
@@ -295,7 +295,7 @@ var _ = Describe("ACME Certificate", Ordered, func() {
 
 	Context("dns-01 challenge using ambient credentials", func() {
 		It("should obtain a valid LetsEncrypt certificate", func() {
-			if _, f := os.LookupEnv(targetPlatformEnvironmentVar) && !f {
+			if _, f := os.LookupEnv(targetPlatformEnvironmentVar); !f {
 				g.Skip("skipping on ppc64le cluster")
 			}
 
@@ -396,7 +396,7 @@ var _ = Describe("ACME Certificate", Ordered, func() {
 
 	Context("dns-01 challenge on IBM Cloud CIS using ambient credentials", func() {
 		It("should obtain a valid LetsEncrypt certificate", func() {
-			if tp, f := os.LookupEnv(targetPlatformEnvironmentVar) && f && tp > 0 && tp == "ibmcloud" {
+			if tp, f := os.LookupEnv(targetPlatformEnvironmentVar); f && tp > 0 && tp == "ibmcloud" {
 				g.Skip("skipping as the cluster does not use ibm cloud CIS")
 			}
 
